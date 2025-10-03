@@ -1,0 +1,49 @@
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+.DS_Store
+/build
+/app/build
+/app/.cxx
+/app/.externalNativeBuild
+*.iml
+*.ap_dependencies
+local.properties
+.idea/assetWizardSettings.xml
+.idea/compiler.xml
+.idea/jarRepositories.xml
+.idea/gradle.xml
+.idea/kotlinc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/deploymentTargetDropDown.xml
+# Android Studio 4.1+ specific files
+.idea/codeStyles
+.idea/navEditor.xml
+.idea/gradle.xml
+.idea/workspace.xml
+# Gradle files
+.gradle/
+build/
+# External native build files
+.externalNativeBuild/
+# Lint results
+lint-results.html
+lint-results.xml
+# Keystore files
+*.jks
+*.keystore
+# Google Services
+google-services.json
+# Crashlytics
+crashlytics.properties
+# Room SQLite
+*.db
+*.db-journal
+*.db-shm
+*.db-wal
+# Other
+.DS_Store

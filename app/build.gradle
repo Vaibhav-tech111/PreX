@@ -1,0 +1,75 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'com.codez.app' // इसे आपके डिफ़ॉल्ट PACKAGE_NAME से मेल खाना चाहिए
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.codez.app" // इसे आपके डिफ़ॉल्ट PACKAGE_NAME से मेल खाना चाहिए
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    // Compose Build Features को हटा दें क्योंकि हम मुख्य रूप से View-based UI (XML) का उपयोग कर रहे हैं।
+    // यदि आप Compose हटाते हैं, तो Compose के निर्भरताओं को भी हटाना होगा।
+    // यहाँ हम सरलता के लिए View-based UI (XML) का उपयोग करते हुए आवश्यक निर्भरताएँ रखते हैं।
+    buildFeatures {
+        // Compose को हटा दें या false सेट करें यदि आप इसे बिल्कुल नहीं चाहते हैं:
+        // compose false 
+    }
+    
+    // यदि आप Compose का उपयोग नहीं कर रहे हैं तो composeOptions ब्लॉक को हटा दें
+    
+    packaging {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+}
+
+dependencies {
+    // AndroidX और Kotlin कोर
+    implementation 'androidx.core:core-ktx:1.12.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1' // UI के लिए AppCompat जोड़ें
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.2'
+    
+    // View-आधारित UI के लिए
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'com.google.android.material:material:1.11.0' // Material Design Components
+    
+    // DuckDuckGo Search / Chat UI के लिए
+    implementation 'androidx.recyclerview:recyclerview:1.3.2'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'com.squareup.okhttp3:okhttp:4.12.0' // नेटवर्किंग के लिए
+
+    // टेस्ट निर्भरताएँ
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    
+    // Compose से संबंधित सभी निर्भरताओं को हटा दें क्योंकि हमने MainActivity को View-आधारित (AppCompatActivity) में बदल दिया है। 
+    // यह डिफ़ॉल्ट रूप से बनाई गई फ़ाइल से अलग है।
+}
